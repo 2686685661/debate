@@ -111,7 +111,7 @@
 <div class="send">
     <div class="s_fiter">
         <div class="s_con">
-            <input type="text" class="s_txt myInput">
+            <input type="text" style="margin-left: 2px" class="s_txt myInput">
             <button value="发布评论" class="s_sub myInput">
                 <span class="mySend">发送</span>
             </button>
