@@ -6,13 +6,13 @@ webpackJsonp([0],{
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(74)
+  __webpack_require__(59)
 }
 var normalizeComponent = __webpack_require__(11)
 /* script */
 var __vue_script__ = __webpack_require__(63)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(64)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -29,7 +29,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/debate.vue"
+Component.options.__file = "resources\\assets\\js\\components\\debate.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +38,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-91aa7970", Component.options)
+    hotAPI.createRecord("data-v-944e7ef0", Component.options)
   } else {
-    hotAPI.reload("data-v-91aa7970", Component.options)
+    hotAPI.reload("data-v-944e7ef0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48,6 +48,48 @@ if (false) {(function () {
 })()}
 
 module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 59:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(60);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(61)("6f13409a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-944e7ef0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./debate.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-944e7ef0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./debate.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 60:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nlabel {\n    display:inline!important;\n    font-weight:100;\n}\n.mt-progress-runway {\n    background-color: red !important;\n    border-radius: 4px !important;\n}\n.box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-flex; /* Safari */\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-pack:justify;\n        -ms-flex-pack:justify;\n            justify-content:space-between;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n}\n.pk {\n    \n    width: 100%;\n    /* height: 3em; */\n    /* flex-grow:1; */\n    margin-top: 10%;\n    margin-bottom: 2%;\n}\n.left, .right  {\n    /* width: 30%; */\n    text-align: center;\n    font-size: 25px;\n    -webkit-box-flex:2;\n        -ms-flex-positive:2;\n            flex-grow:2;\n}\n.block_button .mint-button {\n    height: 60px!important;\n}\n.pk_text {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n    font-size: 30px;\n    text-align: center;\n}\n.mint-header-title {\n    overflow: visible !important;\n}\n.block_button {\n    margin-top: 15%;\n}\n.mint-button {\n    width: 35% !important;\n}\n.message {\n    margin-top: 20%;\n    width: 100%;\n    height: 12em;\n    /* background: red; */\n}\n.form {\n    margin-top: 15%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    bottom: 0;\n}\n.input {\n     -webkit-box-flex:6;\n         -ms-flex-positive:6;\n             flex-grow:6;\n}\n.button {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n}\n\n\n\n", ""]);
+
+// exports
 
 
 /***/ }),
@@ -458,49 +500,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 74:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(75);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(61)("aacf9a3c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-91aa7970\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./debate.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-91aa7970\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./debate.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 75:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nlabel {\n    display:inline!important;\n    font-weight:100;\n}\n.mt-progress-runway {\n    background-color: red !important;\n    border-radius: 4px !important;\n}\n.box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-flex; /* Safari */\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-pack:justify;\n        -ms-flex-pack:justify;\n            justify-content:space-between;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n}\n.pk {\n    \n    width: 100%;\n    /* height: 3em; */\n    /* flex-grow:1; */\n    margin-top: 10%;\n    margin-bottom: 2%;\n}\n.left, .right  {\n    /* width: 30%; */\n    text-align: center;\n    font-size: 25px;\n    -webkit-box-flex:2;\n        -ms-flex-positive:2;\n            flex-grow:2;\n}\n.block_button .mint-button {\n    height: 60px!important;\n}\n.pk_text {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n    font-size: 30px;\n    text-align: center;\n}\n.mint-header-title {\n    overflow: visible !important;\n}\n.block_button {\n    margin-top: 15%;\n}\n.mint-button {\n    width: 35% !important;\n}\n.message {\n    margin-top: 20%;\n    width: 100%;\n    height: 12em;\n    /* background: red; */\n}\n.form {\n    margin-top: 15%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    bottom: 0;\n}\n.input {\n     -webkit-box-flex:6;\n         -ms-flex-positive:6;\n             flex-grow:6;\n}\n.button {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n}\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 76:
+/***/ 64:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -622,7 +622,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-91aa7970", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-944e7ef0", module.exports)
   }
 }
 

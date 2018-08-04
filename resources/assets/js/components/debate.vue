@@ -67,28 +67,28 @@
                 });
             },
 
-            setTimingData() {
-                let _this = this;
-                // var getdata = this.getData
-                
-                setInterval(() => {
-                    // let _this = this;
-                    axios.get('/debate/getOption',{
-                        params: {
-                            opinion_id : _this.ID
-                        }
-                    })
-                    .then((response)=> {
-                        if(response.data.code == 0) {
-                            // console.log(response.data.result[response.data.result.length -1].id);
-                            // console.log(_this.ID);
-                            _this.ID = parseInt(response.data.result[response.data.result.length -1].id);
-                            // _this.test(parseInt(response.data.result[response.data.result.length -1].id));
-                            _this.messageData.concat(response.data.result);
-                        }
-                    });
-                },2000);
-            },
+            // setTimingData() {
+            //     let _this = this;
+            //     // var getdata = this.getData
+            //
+            //     setInterval(() => {
+            //         // let _this = this;
+            //         axios.get('/debate/getOption',{
+            //             params: {
+            //                 opinion_id : _this.ID
+            //             }
+            //         })
+            //         .then((response)=> {
+            //             if(response.data.code == 0) {
+            //                 // console.log(response.data.result[response.data.result.length -1].id);
+            //                 // console.log(_this.ID);
+            //                 _this.ID = parseInt(response.data.result[response.data.result.length -1].id);
+            //                 // _this.test(parseInt(response.data.result[response.data.result.length -1].id));
+            //                 _this.messageData.concat(response.data.result);
+            //             }
+            //         });
+            //     },2000);
+            // },
             getLiDom(item) {
                 var styles = [
                     {class:'label label-primary', text:'未选择'},
@@ -139,7 +139,7 @@
         },
         mounted() {
             // this.getData();
-            this.setTimingData();
+            // this.setTimingData();
             // this.setTimingDom();
         }
     }
