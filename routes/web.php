@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login');
 
-Route::group(['prefix' => 'user'], function() {
-    
-});
+Route::group(['middleware' => ['login_check']], function () {
+    Route::get('/', function () {
+        return view('index');
+    });
+    Route::group(['prefix' => 'user'], function() {
 
+    });
+    Route::group(['prefix' => 'debate'], function() {
 
-Route::group(['prefix' => 'debate'], function() {
-
+    });
 });
 

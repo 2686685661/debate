@@ -1,10 +1,24 @@
 <?php
 
 namespace App\Models;
-use DB;
-use Illuminate\Http\Request;
 
-class User 
+use Illuminate\Database\Eloquent\Model;
+use DB;
+
+class User extends Model
 {
-    
+    // 登陆判断
+    public static function get_account($loginName)
+    {
+        $result = DB::table('user')
+            ->where('sn', $loginName)
+            ->first();
+        return $result;
+    }
+
+    public static function reset($user){
+        DB::table('user')
+            ->where('id', $user['id'])
+            ->update($user);
+    }
 }
