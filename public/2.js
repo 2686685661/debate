@@ -25,18 +25,18 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/404.vue"
+Component.options.__file = "resources\\assets\\js\\components\\404.vue"
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c1ac4c1e", Component.options)
+    hotAPI.createRecord("data-v-1d82369e", Component.options)
   } else {
-    hotAPI.reload("data-v-c1ac4c1e", Component.options)
+    hotAPI.reload("data-v-1d82369e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -81,7 +81,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-c1ac4c1e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1d82369e", module.exports)
   }
 }
 

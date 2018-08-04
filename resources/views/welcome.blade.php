@@ -31,6 +31,21 @@
     *{
         margin: 0;
         padding: 0;
+        list-style-type:none;
+    }
+    a,img{
+        border:0;
+    }
+    #myLeft{
+        width: 100%;
+        height: 100%;
+    }
+    #myRight{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: rotate(180deg);
+        top: 0;
     }
     .clearboth{
         content: "";
@@ -82,27 +97,40 @@
         /* margin-top: 20px; */
     }
     .myInput{
+        width: 100%;
         float: left;
         position: relative;
     }
     .mySend{
+        width: 100%;
         position: absolute;
         top: -55%;
-        left: 30%;
+        left: 0%;
     }
 </style>
 
 
 <body>
+<div style="position: relative;width: 100%;height: 100px">
+    <div id="myLeft">
 
+<<<<<<< HEAD
 	<!-- <header class="codrops-header">
 		<h1>对话框的效果</h1>
 		<div class="button-wrap"><button data-dialog="somedialog" class="trigger">打开对话框</button></div>
 	</header> -->
+=======
+    </div>
+    <div id="myRight">
+
+    </div>
+</div>
+>>>>>>> d3914f63a3a0ebe07f173bbe0828cb19ca024fd1
 
 <div class="send">
     <div class="s_fiter">
         <div class="s_con">
+<<<<<<< HEAD
             <input type="text" class="s_txt myInput" id="input">
             <span id="myInSe" style="width:30%;height:37px;float:left;margin-top:20px;">
                 <button value="发布评论" class="s_sub myInput" data-dialog="somedialog">
@@ -110,6 +138,12 @@
                 </button>
             </span>
 
+=======
+            <input type="text" style="margin-left: 2px" class="s_txt myInput">
+            <button value="发布评论" class="s_sub myInput">
+                <span class="mySend">发送</span>
+            </button>
+>>>>>>> d3914f63a3a0ebe07f173bbe0828cb19ca024fd1
         </div>
     </div>
 </div>
@@ -222,5 +256,11 @@
 </script>
 
 
+<script>
+    var leftNum = 150,rightNum = 100;
+    var left = 100*(leftNum/(leftNum+rightNum));
+    var right = 100*(rightNum/(leftNum+rightNum));
+</script>
+<script type="text/javascript" src="{{ asset('rate/script.js') }}"></script>
 </body>
 </html>
