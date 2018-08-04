@@ -21,6 +21,7 @@
 
 require __DIR__.'/../bootstrap/autoload.php';
 
+require __DIR__.'/../helpers/functions.php';
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
