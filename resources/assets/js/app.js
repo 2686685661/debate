@@ -20,8 +20,11 @@ import Vue from 'vue';
 import App from "./App.vue";
 import router from './router';
 import axios from 'axios';
+import 'mint-ui/lib/style.css';
+import Mint from 'mint-ui';
 
 window.axios = axios;
+Vue.use(Mint);
 
 
 
