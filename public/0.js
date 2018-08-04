@@ -378,10 +378,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         getData: function getData() {
             var _this = this;
-            axios.post('', {
-                'id': _this.ID
+            axios.get('/debate/getOption', {
+                params: {
+                    opinion_id: _this.ID
+                }
             }).then(function (response) {
                 if (response.data.code == 0) {
+                    console.log(response.data.result);
                     _this.ID = response.data.result[response.data.result.length - 1].id;
                     _this.messageData.concat(response.data.result);
                 }
@@ -389,7 +392,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         setTimingData: function setTimingData() {
             var _this = this;
-            setInterval(_this.getData(), 3000);
+            // var getdata = this.getData
+
+            setInterval(function () {
+                // let _this = this;
+                axios.get('/debate/getOption', {
+                    params: {
+                        opinion_id: _this.ID
+                    }
+                }).then(function (response) {
+                    if (response.data.code == 0) {
+                        // console.log(response.data.result[response.data.result.length -1].id);
+                        // console.log(_this.ID);
+                        _this.ID = parseInt(response.data.result[response.data.result.length - 1].id);
+                        // _this.test(parseInt(response.data.result[response.data.result.length -1].id));
+                        _this.messageData.concat(response.data.result);
+                    }
+                });
+            }, 2000);
         },
         getLiDom: function getLiDom(item) {
             var styles = [{ class: 'label label-primary', text: '未选择' }, { class: 'label label-primary', text: '正方' }, { class: 'label label-danger', text: '反方' }];
@@ -398,8 +418,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var span2 = document.createElement("span");
             //0没有选择，1正，2反
             li.setAttribute('class', 'list-group-item');
-            span1.setAttribute('class', styles[item.type].class);
-            span1.innerHTML = styles[item.type].text;
+            span1.setAttribute('class', styles[item.stand].class);
+            span1.innerHTML = styles[item.stand].text;
             span2.innerHTML = item.name + ': ' + item.context;
 
             li.appendChild(span1);
@@ -430,9 +450,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
-        this.getData();
+        // this.getData();
         this.setTimingData();
-        this.setTimingDom();
+        // this.setTimingDom();
     }
 });
 
