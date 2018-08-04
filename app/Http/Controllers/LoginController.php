@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Response;
 use Redirect;
+use DB;
 
 class LoginController extends Controller
 {
@@ -18,11 +19,16 @@ class LoginController extends Controller
 	public function login(Request $request)
 	{
 		if ($request->isMethod('post')) {
+		    $idNum =  $request->idNum;
 			$name = $request->name;
 			$pwd = $request->pwd;
-			$user = User::get_account($name);
-			if ($user && $user->status == 0) {
-				if (get_md5_password($pwd) == $user->password) {
+			$user = User::get_account($idNum);
+			if ($user) {
+				if ($pwd == $user->password) {
+
+                    DB::table('user')
+                        ->where('sn', $idNum)
+                        ->update(['name' => $name]);
 
                     $this->login_success($request, $user);
 
