@@ -29,18 +29,18 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\debate.vue"
+Component.options.__file = "resources/assets/js/components/debate.vue"
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-944e7ef0", Component.options)
+    hotAPI.createRecord("data-v-91aa7970", Component.options)
   } else {
-    hotAPI.reload("data-v-944e7ef0", Component.options)
+    hotAPI.reload("data-v-91aa7970", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -62,13 +62,13 @@ var content = __webpack_require__(60);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(61)("6f13409a", content, false, {});
+var update = __webpack_require__(61)("7634fbf4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-944e7ef0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./debate.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-944e7ef0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./debate.vue");
+   module.hot.accept("!!../../../../node_modules/_css-loader@0.28.11@css-loader/index.js!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-91aa7970\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/selector.js?type=styles&index=0!./debate.vue", function() {
+     var newContent = require("!!../../../../node_modules/_css-loader@0.28.11@css-loader/index.js!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-91aa7970\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/selector.js?type=styles&index=0!./debate.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -432,27 +432,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             });
         },
-        setTimingData: function setTimingData() {
-            var _this = this;
-            // var getdata = this.getData
 
-            setInterval(function () {
-                // let _this = this;
-                axios.get('/debate/getOption', {
-                    params: {
-                        opinion_id: _this.ID
-                    }
-                }).then(function (response) {
-                    if (response.data.code == 0) {
-                        // console.log(response.data.result[response.data.result.length -1].id);
-                        // console.log(_this.ID);
-                        _this.ID = parseInt(response.data.result[response.data.result.length - 1].id);
-                        // _this.test(parseInt(response.data.result[response.data.result.length -1].id));
-                        _this.messageData.concat(response.data.result);
-                    }
-                });
-            }, 2000);
-        },
+
+        // setTimingData() {
+        //     let _this = this;
+        //     // var getdata = this.getData
+        //
+        //     setInterval(() => {
+        //         // let _this = this;
+        //         axios.get('/debate/getOption',{
+        //             params: {
+        //                 opinion_id : _this.ID
+        //             }
+        //         })
+        //         .then((response)=> {
+        //             if(response.data.code == 0) {
+        //                 // console.log(response.data.result[response.data.result.length -1].id);
+        //                 // console.log(_this.ID);
+        //                 _this.ID = parseInt(response.data.result[response.data.result.length -1].id);
+        //                 // _this.test(parseInt(response.data.result[response.data.result.length -1].id));
+        //                 _this.messageData.concat(response.data.result);
+        //             }
+        //         });
+        //     },2000);
+        // },
         getLiDom: function getLiDom(item) {
             var styles = [{ class: 'label label-primary', text: '未选择' }, { class: 'label label-primary', text: '正方' }, { class: 'label label-danger', text: '反方' }];
             var li = document.createElement("li");
@@ -493,7 +496,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         // this.getData();
-        this.setTimingData();
+        // this.setTimingData();
         // this.setTimingDom();
     }
 });
@@ -622,7 +625,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-944e7ef0", module.exports)
+    require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-91aa7970", module.exports)
   }
 }
 
