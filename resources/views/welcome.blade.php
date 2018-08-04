@@ -85,7 +85,7 @@
         color: black;
     }
     .send .s_con .s_sub{
-        width: 100%;
+        width: 30%;
         height: 37px;
         background: red;
         outline: none;
@@ -94,7 +94,7 @@
         font-family: "微软雅黑";
         border-radius: 0 4px 4px 0;
         border: 1px solid red;
-        /* margin-top: 20px; */
+        margin-top: 20px;
     }
     .myInput{
         width: 100%;
@@ -114,36 +114,23 @@
 <div style="position: relative;width: 100%;height: 100px">
     <div id="myLeft">
 
-<<<<<<< HEAD
 	<!-- <header class="codrops-header">
 		<h1>对话框的效果</h1>
 		<div class="button-wrap"><button data-dialog="somedialog" class="trigger">打开对话框</button></div>
 	</header> -->
-=======
     </div>
     <div id="myRight">
 
     </div>
 </div>
->>>>>>> d3914f63a3a0ebe07f173bbe0828cb19ca024fd1
 
 <div class="send">
     <div class="s_fiter">
         <div class="s_con">
-<<<<<<< HEAD
-            <input type="text" class="s_txt myInput" id="input">
-            <span id="myInSe" style="width:30%;height:37px;float:left;margin-top:20px;">
-                <button value="发布评论" class="s_sub myInput" data-dialog="somedialog">
-                    <span class="mySend">发送</span>
-                </button>
-            </span>
-
-=======
             <input type="text" style="margin-left: 2px" class="s_txt myInput">
             <button value="发布评论" class="s_sub myInput">
                 <span class="mySend">发送</span>
             </button>
->>>>>>> d3914f63a3a0ebe07f173bbe0828cb19ca024fd1
         </div>
     </div>
 </div>
