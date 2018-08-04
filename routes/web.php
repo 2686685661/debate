@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/login', 'LoginController@index');
+// Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 
-Route::get('/test',function() {
-    var_dump('aaaaa');
-});
 
-//Route::group(['middleware' => ['login_check']], function () {
+
+Route::group(['middleware' => ['login_check']], function () {
     Route::get('/', function () {
         return view('index');
     });
@@ -34,5 +32,5 @@ Route::get('/test',function() {
         Route::post('/option', 'DebateController@option');
         Route::get('/getOption','DebateController@getOption');
     });
-//});
+});
 
