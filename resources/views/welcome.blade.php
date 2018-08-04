@@ -22,6 +22,21 @@
     *{
         margin: 0;
         padding: 0;
+        list-style-type:none;
+    }
+    a,img{
+        border:0;
+    }
+    #myLeft{
+        width: 100%;
+        height: 100%;
+    }
+    #myRight{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: rotate(180deg);
+        top: 0;
     }
     .clearboth{
         content: "";
@@ -72,17 +87,26 @@
         margin-top: 20px;
     }
     .myInput{
+        width: 100%;
         float: left;
         position: relative;
     }
     .mySend{
+        width: 100%;
         position: absolute;
         top: -55%;
-        left: 30%;
+        left: 0%;
     }
 </style>
 <body>
+<div style="position: relative;width: 100%;height: 100px">
+    <div id="myLeft">
 
+    </div>
+    <div id="myRight">
+
+    </div>
+</div>
 
 <div class="send">
     <div class="s_fiter">
@@ -103,12 +127,16 @@
 <!--颜色-->
 <script type="text/javascript" src="{{ asset('barrage/static/pick-a-color/js/pick-a-color-1.2.3.min.js') }}"></script>
 <script>
+    var leftNum = 150,rightNum = 100;
+    var left = 100*(leftNum/(leftNum+rightNum));
+    var right = 100*(rightNum/(leftNum+rightNum));
+
     var  item={
         'info':'我是魏亚林',
         'close':false,
         'speed':6,
         'color': 'red',
-        'old_ie_color':'#000000'
+        'old_ie_color':'#000'
     };
     $('body').barrager(item);
     $('body').barrager(item);
@@ -118,5 +146,6 @@
     $('body').barrager(item);
     $('body').barrager(item);
 </script>
+<script type="text/javascript" src="{{ asset('rate/script.js') }}"></script>
 </body>
 </html>

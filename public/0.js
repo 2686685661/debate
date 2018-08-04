@@ -1,24 +1,25 @@
 webpackJsonp([0],{
 
-/***/ 55:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(59)
+  __webpack_require__(60)
+  __webpack_require__(62)
 }
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = __webpack_require__(63)
+var __vue_script__ = __webpack_require__(65)
 /* template */
-var __vue_template__ = __webpack_require__(64)
+var __vue_template__ = __webpack_require__(66)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-75251e4e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -29,18 +30,18 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/debate.vue"
+Component.options.__file = "resources\\assets\\js\\components\\signIn.vue"
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-91aa7970", Component.options)
+    hotAPI.createRecord("data-v-75251e4e", Component.options)
   } else {
-    hotAPI.reload("data-v-91aa7970", Component.options)
+    hotAPI.reload("data-v-75251e4e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52,49 +53,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 59:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(60);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(61)("7634fbf4", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/_css-loader@0.28.11@css-loader/index.js!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-91aa7970\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/selector.js?type=styles&index=0!./debate.vue", function() {
-     var newContent = require("!!../../../../node_modules/_css-loader@0.28.11@css-loader/index.js!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-91aa7970\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/_vue-loader@13.7.2@vue-loader/lib/selector.js?type=styles&index=0!./debate.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 60:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nlabel {\n    display:inline!important;\n    font-weight:100;\n}\n.mt-progress-runway {\n    background-color: red !important;\n    border-radius: 4px !important;\n}\n.box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-flex; /* Safari */\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-pack:justify;\n        -ms-flex-pack:justify;\n            justify-content:space-between;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n}\n.pk {\n    \n    width: 100%;\n    /* height: 3em; */\n    /* flex-grow:1; */\n    margin-top: 10%;\n    margin-bottom: 2%;\n}\n.left, .right  {\n    /* width: 30%; */\n    text-align: center;\n    font-size: 25px;\n    -webkit-box-flex:2;\n        -ms-flex-positive:2;\n            flex-grow:2;\n}\n.block_button .mint-button {\n    height: 60px!important;\n}\n.pk_text {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n    font-size: 30px;\n    text-align: center;\n}\n.mint-header-title {\n    overflow: visible !important;\n}\n.block_button {\n    margin-top: 15%;\n}\n.mint-button {\n    width: 35% !important;\n}\n.message {\n    margin-top: 20%;\n    width: 100%;\n    height: 12em;\n    /* background: red; */\n}\n.form {\n    margin-top: 15%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    bottom: 0;\n}\n.input {\n     -webkit-box-flex:6;\n         -ms-flex-positive:6;\n             flex-grow:6;\n}\n.button {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n}\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 61:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -113,7 +72,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(62)
+var listToStyles = __webpack_require__(59)
 
 /*
 type StyleObject = {
@@ -323,7 +282,7 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 62:
+/***/ 59:
 /***/ (function(module, exports) {
 
 /**
@@ -357,7 +316,99 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
+/***/ 60:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(61);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(58)("48269dd7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-75251e4e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./signIn.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-75251e4e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./signIn.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 61:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.login-input .mint-field-core {\n    background-color: rgba(0,0,0,0);\n    color: #fff;\n}\n.login-input .mint-field-core::-webkit-input-placeholder { \n    color: #fff;\n}\n.login-input .mint-field-core::-moz-input-placeholder { \n    color: #fff;\n}\n.login-input .mint-field-core::-ms-input-placeholder { \n    color: #fff;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 62:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(63);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(58)("45c9e6a9", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-75251e4e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./signIn.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-75251e4e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./signIn.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
 /***/ 63:
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__(55);
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.login-buttonBox[data-v-75251e4e] {\n    margin: 0 20px 10px;\n}\n.login-button[data-v-75251e4e] {\n    width: 100%;\n    border-radius: 20px;\n    margin-top: 30px;\n}\n.hTop[data-v-75251e4e] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: #fff;\n    font-size: 20px;\n    margin-bottom: 20px;\n    padding: 29% 20px 10px;\n}\n.hTop>img[data-v-75251e4e] {\n    width:40px;\n    margin-right: 10px;\n}\n.login-input[data-v-75251e4e] {\n    background-color: rgba(0,0,0,0);\n}\n.login-Bg-Img[data-v-75251e4e] {\n    background-image: url(" + escape(__webpack_require__(64)) + ");\n    background-size: cover;\n} \n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, exports) {
+
+module.exports = "/images/bg.jpg?41e5e67032aaed0807c312e04ad07d9b";
+
+/***/ }),
+
+/***/ 65:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -380,243 +431,137 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            messageData: [],
-            returnDta: [],
-            ID: 0
+            clientHeight: document.documentElement.clientHeight,
+            student: {
+                userName: "",
+                passWord: ""
+            }
         };
     },
 
     methods: {
-        getData: function getData() {
-            var _this = this;
-            axios.get('/debate/getOption', {
-                params: {
-                    opinion_id: _this.ID
-                }
+        trimStr: function trimStr(str) {
+            return str.replace(/\s+/g, "");
+        },
+        doSubmit: function doSubmit() {
+            var that = this;
+            var user = that.trimStr(that.student.userName);
+            var passW = that.trimStr(that.student.passWord);
+            // console.log(passW,user)
+            if (user == '') {
+                Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请填写您的账号');
+                return;
+            } else if (passW == '') {
+                Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入密码！');
+                return;
+            };
+            axios.post('/login', {
+                idNum: user,
+                pwd: passW
             }).then(function (response) {
-                if (response.data.code == 0) {
-                    console.log(response.data.result);
-                    _this.ID = response.data.result[response.data.result.length - 1].id;
-                    _this.messageData.concat(response.data.result);
+                var date = response.data;
+                if (date.status == 0) {
+                    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('登录成功！');
+                    that.$router.push({ path: '/debate' });
+                } else if (date.status == 1) {
+                    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(date.msg);
+                } else {
+                    that.$router.push({ path: '/signin' });
                 }
+            }).catch(function (error) {
+                console.log(error);
             });
-        },
-
-
-        // setTimingData() {
-        //     let _this = this;
-        //     // var getdata = this.getData
-        //
-        //     setInterval(() => {
-        //         // let _this = this;
-        //         axios.get('/debate/getOption',{
-        //             params: {
-        //                 opinion_id : _this.ID
-        //             }
-        //         })
-        //         .then((response)=> {
-        //             if(response.data.code == 0) {
-        //                 // console.log(response.data.result[response.data.result.length -1].id);
-        //                 // console.log(_this.ID);
-        //                 _this.ID = parseInt(response.data.result[response.data.result.length -1].id);
-        //                 // _this.test(parseInt(response.data.result[response.data.result.length -1].id));
-        //                 _this.messageData.concat(response.data.result);
-        //             }
-        //         });
-        //     },2000);
-        // },
-        getLiDom: function getLiDom(item) {
-            var styles = [{ class: 'label label-primary', text: '未选择' }, { class: 'label label-primary', text: '正方' }, { class: 'label label-danger', text: '反方' }];
-            var li = document.createElement("li");
-            var span1 = document.createElement("span");
-            var span2 = document.createElement("span");
-            //0没有选择，1正，2反
-            li.setAttribute('class', 'list-group-item');
-            span1.setAttribute('class', styles[item.stand].class);
-            span1.innerHTML = styles[item.stand].text;
-            span2.innerHTML = item.name + ': ' + item.context;
-
-            li.appendChild(span1);
-            li.appendChild(span2);
-
-            return li;
-        },
-        setLiDom: function setLiDom(index) {
-            var ul = document.getElementById('ul_message');
-            var liArr = ul.children;
-            var _this = this;
-            if (liArr.length >= 1) ul.removeChild(liArr[0]);
-            if (index == 0) this.returnDta.forEach(function (item, index) {
-                ul.appendChild(_this.getLiDom(item));
-            });else ul.appendChild(this.getLiDom(this.returnDta[this.returnDta.length - 1]));
-        },
-        setTimingDom: function setTimingDom() {
-            var _this = this;
-            var index = 0;
-            var length = 4;
-            setInterval(function () {
-                if (_this.messageData.length < 5) _this.returnDta = _this.messageData;else {
-                    _this.returnDta = _this.messageData.slice(index, index + legth);
-                }
-                _this.setLiDom(index);
-                ++index;
-            }, 1500);
         }
     },
     mounted: function mounted() {
-        // this.getData();
-        // this.setTimingData();
-        // this.setTimingDom();
+        __WEBPACK_IMPORTED_MODULE_0_mint_ui__["Indicator"].close();
     }
 });
 
 /***/ }),
 
-/***/ 64:
+/***/ 66:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "content fix" },
-    [
-      _c("mt-header", { attrs: { title: "固定在顶部" } }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "block_button box" },
-        [
-          _c("mt-button", { attrs: { size: "normal", type: "primary" } }, [
-            _vm._v("支持正方")
-          ]),
-          _vm._v(" "),
-          _c("mt-button", { attrs: { size: "normal", type: "danger" } }, [
-            _vm._v("支持反方")
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form" },
-        [
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "Username" }
-          }),
-          _vm._v(" "),
-          _c(
-            "mt-button",
-            {
-              staticClass: "button",
-              attrs: { size: "normal", type: "danger" }
+  return _c("div", { staticClass: "content" }, [
+    _c(
+      "div",
+      {
+        staticClass: "login-Bg-Img",
+        style: { height: _vm.clientHeight + "px" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("mt-field", {
+          staticClass: "login-input",
+          attrs: { placeholder: "账号" },
+          model: {
+            value: _vm.student.userName,
+            callback: function($$v) {
+              _vm.$set(_vm.student, "userName", $$v)
             },
-            [_vm._v("发送")]
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+            expression: "student.userName"
+          }
+        }),
+        _vm._v(" "),
+        _c("mt-field", {
+          staticClass: "login-input",
+          attrs: { placeholder: "密码", type: "password" },
+          model: {
+            value: _vm.student.passWord,
+            callback: function($$v) {
+              _vm.$set(_vm.student, "passWord", $$v)
+            },
+            expression: "student.passWord"
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "login-buttonBox" },
+          [
+            _c(
+              "mt-button",
+              {
+                staticClass: "login-button",
+                attrs: { type: "primary" },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.doSubmit($event)
+                  }
+                }
+              },
+              [_vm._v("登录")]
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pk box" }, [
-      _c("div", { staticClass: "left" }, [_vm._v("正方：50人")]),
+    return _c("div", { staticClass: "hTop" }, [
+      _c("img", {
+        attrs: { src: __webpack_require__(67), alt: "三月Logo" }
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "pk_text" }, [_vm._v("PK")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "right" }, [_vm._v("反方：50人")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "progress" }, [
-      _c(
-        "div",
-        {
-          staticClass: "progress-bar progress-bar-striped active",
-          staticStyle: { width: "50%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "45",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        },
-        [_c("span", { staticClass: "sr-only" }, [_vm._v("45% Complete")])]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "progress-bar progress-bar-striped progress-bar-success active right_color",
-          staticStyle: { width: "50%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "45",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        },
-        [_c("span", { staticClass: "sr-only" }, [_vm._v("45% Complete")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "message" }, [
-      _c("ul", { staticClass: "list-group", attrs: { id: "ul_message" } })
+      _c("span", [_vm._v("March")])
     ])
   }
 ]
@@ -625,9 +570,16 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-91aa7970", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-75251e4e", module.exports)
   }
 }
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, exports) {
+
+module.exports = "/images/log.png?c2d1e9f4b72604386ce3de1cde2111b4";
 
 /***/ })
 
