@@ -23,6 +23,11 @@
         margin: 0;
         padding: 0;
     }
+    .clearboth{
+        content: "";
+        clear: both;
+        display: block;
+    }
     .send {
         width: 100%;
         height: 76px;
@@ -68,6 +73,12 @@
     }
     .myInput{
         float: left;
+        position: relative;
+    }
+    .mySend{
+        position: absolute;
+        top: -55%;
+        left: 30%;
     }
 </style>
 <body>
@@ -77,7 +88,9 @@
     <div class="s_fiter">
         <div class="s_con">
             <input type="text" class="s_txt myInput">
-            <input type="button" value="发布评论" class="s_sub myInput">
+            <button value="发布评论" class="s_sub myInput">
+                <span class="mySend">发送</span>
+            </button>
         </div>
     </div>
 </div>
