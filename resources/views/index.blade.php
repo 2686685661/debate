@@ -11,8 +11,6 @@
         <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
         <title>Laravel</title>
 
-
-
     </head>
     <body style="margin:0">
         <div id="app"></div>

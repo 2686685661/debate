@@ -22,6 +22,9 @@ Route::get('/test',function() {
     Route::get('/', function () {
         return view('index');
     });
+    Route::get('/welcome', function () {
+        return view('welcome');
+    });
     Route::group(['prefix' => 'user'], function() {
 
     });
