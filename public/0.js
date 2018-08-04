@@ -358,15 +358,82 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            messageData: [],
+            returnDta: [],
+            ID: 0
+        };
     },
 
-    methods: {},
-    mounted: function mounted() {}
+    methods: {
+        getData: function getData() {
+            var _this = this;
+            axios.post('', {
+                'id': _this.ID
+            }).then(function (response) {
+                if (response.data.code == 0) {
+                    _this.ID = response.data.result[response.data.result.length - 1].id;
+                    _this.messageData.concat(response.data.result);
+                }
+            });
+        },
+        setTimingData: function setTimingData() {
+            var _this = this;
+            setInterval(_this.getData(), 3000);
+        },
+        getLiDom: function getLiDom(item) {
+            var styles = [{ class: 'label label-primary', text: '未选择' }, { class: 'label label-primary', text: '正方' }, { class: 'label label-danger', text: '反方' }];
+            var li = document.createElement("li");
+            var span1 = document.createElement("span");
+            var span2 = document.createElement("span");
+            //0没有选择，1正，2反
+            li.setAttribute('class', 'list-group-item');
+            span1.setAttribute('class', styles[item.type].class);
+            span1.innerHTML = styles[item.type].text;
+            span2.innerHTML = item.name + ': ' + item.context;
+
+            li.appendChild(span1);
+            li.appendChild(span2);
+
+            return li;
+        },
+        setLiDom: function setLiDom(index) {
+            var ul = document.getElementById('ul_message');
+            var liArr = ul.children;
+            var _this = this;
+            if (liArr.length >= 1) ul.removeChild(liArr[0]);
+            if (index == 0) this.returnDta.forEach(function (item, index) {
+                ul.appendChild(_this.getLiDom(item));
+            });else ul.appendChild(this.getLiDom(this.returnDta[this.returnDta.length - 1]));
+        },
+        setTimingDom: function setTimingDom() {
+            var _this = this;
+            var index = 0;
+            var length = 4;
+            setInterval(function () {
+                if (_this.messageData.length < 5) _this.returnDta = _this.messageData;else {
+                    _this.returnDta = _this.messageData.slice(index, index + legth);
+                }
+                _this.setLiDom(index);
+                ++index;
+            }, 1500);
+        }
+    },
+    mounted: function mounted() {
+        this.getData();
+        this.setTimingData();
+        this.setTimingDom();
+    }
 });
 
 /***/ }),
@@ -406,7 +473,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .fix {\n    display: flex;\n} */\nlabel {\n    display:inline!important;\n    font-weight:100;\n}\n.mt-progress-runway {\n    background-color: red !important;\n    border-radius: 4px !important;\n}\n.box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-flex; /* Safari */\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-pack:justify;\n        -ms-flex-pack:justify;\n            justify-content:space-between;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n}\n.pk {\n    \n    width: 100%;\n    height: 3em;\n    /* flex-grow:1; */\n    margin-bottom: 2%;\n}\n.left, .right  {\n    /* width: 30%; */\n    text-align: center;\n    -webkit-box-flex:2;\n        -ms-flex-positive:2;\n            flex-grow:2;\n}\n.pk_text {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n    text-align: center;\n}\n.mint-header-title {\n    overflow: visible !important;\n}\n.block_button {\n    margin-top: 15%;\n}\n.mint-button {\n    width: 35% !important;\n}\n.message {\n    margin-top: 20%;\n    width: 100%;\n    height: 10em;\n    background: red;\n}\n.form {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.input {\n     -webkit-box-flex:6;\n         -ms-flex-positive:6;\n             flex-grow:6;\n}\n.button {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n}\n/* .right_color {\n    background-color:!important;\n} */\n\n\n", ""]);
+exports.push([module.i, "\nlabel {\n    display:inline!important;\n    font-weight:100;\n}\n.mt-progress-runway {\n    background-color: red !important;\n    border-radius: 4px !important;\n}\n.box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-flex; /* Safari */\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-pack:justify;\n        -ms-flex-pack:justify;\n            justify-content:space-between;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n}\n.pk {\n    \n    width: 100%;\n    /* height: 3em; */\n    /* flex-grow:1; */\n    margin-top: 10%;\n    margin-bottom: 2%;\n}\n.left, .right  {\n    /* width: 30%; */\n    text-align: center;\n    font-size: 25px;\n    -webkit-box-flex:2;\n        -ms-flex-positive:2;\n            flex-grow:2;\n}\n.block_button .mint-button {\n    height: 60px!important;\n}\n.pk_text {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n    font-size: 30px;\n    text-align: center;\n}\n.mint-header-title {\n    overflow: visible !important;\n}\n.block_button {\n    margin-top: 15%;\n}\n.mint-button {\n    width: 35% !important;\n}\n.message {\n    margin-top: 20%;\n    width: 100%;\n    height: 12em;\n    /* background: red; */\n}\n.form {\n    margin-top: 15%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    bottom: 0;\n}\n.input {\n     -webkit-box-flex:6;\n         -ms-flex-positive:6;\n             flex-grow:6;\n}\n.button {\n    -webkit-box-flex:1;\n        -ms-flex-positive:1;\n            flex-grow:1;\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -445,7 +512,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "message" }),
+      _vm._m(2),
       _vm._v(" "),
       _c(
         "div",
@@ -519,6 +586,14 @@ var staticRenderFns = [
         },
         [_c("span", { staticClass: "sr-only" }, [_vm._v("45% Complete")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message" }, [
+      _c("ul", { staticClass: "list-group", attrs: { id: "ul_message" } })
     ])
   }
 ]

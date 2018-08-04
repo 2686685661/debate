@@ -14,7 +14,7 @@
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 
-Route::group(['middleware' => ['login_check']], function () {
+// Route::group(['middleware' => ['login_check']], function () {
     Route::get('/', function () {
         return view('index');
     });
@@ -24,5 +24,5 @@ Route::group(['middleware' => ['login_check']], function () {
     Route::group(['prefix' => 'debate'], function() {
 
     });
-});
+// });
 
