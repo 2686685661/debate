@@ -27,6 +27,7 @@ class DebateController extends Controller
 
     public function option(Request $request){
         $content  = $request->input('content');
+        // var_dump($content);die;
         $data = [
             'user_id' => get_user_id(),
             'content' => $content,

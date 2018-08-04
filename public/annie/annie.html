@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dialog Effects | Annie</title>
+
+<!--可无视-->
+<link rel="stylesheet" type="text/css" href="./normalize.css" />
+<link rel="stylesheet" type="text/css" href="./demo.css" />
+
+<!-- 公共对话框样式 -->
+<link rel="stylesheet" type="text/css" href="./dialog.css" />
+
+<!-- css3弹出动画样式 -->
+<link rel="stylesheet" type="text/css" href="./dialog-annie.css" />
+
+<script type="text/javascript" src="./modernizr.custom.js"></script>
+
+</head>
+<body>
+
+<div class="content">
+
+	<header class="codrops-header">
+		<h1>对话框的效果</h1>
+		<div class="button-wrap"><button data-dialog="somedialog" class="trigger">打开对话框</button></div>
+	</header>
+	
+	<nav id="menu" class="menu">
+		<div>
+			<h2>Simple</h2>
+			<ul>
+				<li><a href="index.html">Sandra</a></li>
+				<li><a href="sally.html">Sally</a></li>
+			</ul>
+			<h2>Body</h2>
+			<ul>
+				<li><a href="dean.html">Dean</a></li>
+				<li><a href="susan.html">Susan</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2>Move/Slide</h2>
+			<ul>
+				<li><a href="cathy.html">Cathy</a></li>
+				<li><a class="current-demo" href="annie.html">Annie</a></li>
+				<li><a href="val.html">Val</a></li>
+				<li><a href="ricky.html">Ricky</a></li>
+				<li><a href="donna.html">Donna</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2>Sticky</h2>
+			<ul>
+				<li><a href="ken.html">Ken</a></li>
+				<li><a href="alex.html">Alex</a></li>
+			</ul>
+			<h2>Jelly</h2>
+			<ul>
+				<li><a href="don.html">Don</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2>SVG</h2>
+			<ul>
+				<li><a href="laura.html">Laura</a></li>
+				<li><a href="jamie.html">Jamie</a></li>
+				<li><a href="henry.html">Henry</a></li>
+				<li><a href="jim.html">Jim</a></li>
+				<li><a href="wilma.html">Wilma</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div id="somedialog" class="dialog">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<h2><strong>Howdy</strong>, I'm a dialog box</h2><div><button class="action" data-dialog-close>Close</button></div>
+		</div>
+	</div>
+
+</div><!-- /content -->
+
+<script type="text/javascript" src="./classie.js"></script>
+<script type="text/javascript" src="./dialogFx.js"></script>
+<script type="text/javascript">
+(function() {
+
+	var dlgtrigger = document.querySelector( '[data-dialog]' ),
+		somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
+		dlg = new DialogFx( somedialog );
+
+	dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+
+})();
+</script>
+
+</body>
+</html>

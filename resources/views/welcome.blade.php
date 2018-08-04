@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <title>{{ env('TITLE') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('barrage/static/css/bootstrap.min.css') }}" media="screen" />
@@ -17,8 +18,16 @@
     <!--颜色-->
     <link rel="stylesheet" type="text/css" href="{{ asset('barrage/static/pick-a-color/css/pick-a-color-1.2.3.min.css') }}">
 
+    <!--弹出框-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('annie/css/normalize.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('annie/css/demo.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('annie/css/dialog.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('annie/css/dialog-annie.css') }}" scoped/>
+    <script type="text/javascript" src="{{ asset('annie/js/modernizr.custom.js') }}"></script>
+
+
 </head>
-<style>
+<style >
     *{
         margin: 0;
         padding: 0;
@@ -58,9 +67,10 @@
         outline: none;
         border: 1px solid;
         margin-top: 20px;
+        color: black;
     }
     .send .s_con .s_sub{
-        width: 30%;
+        width: 100%;
         height: 37px;
         background: red;
         outline: none;
@@ -69,7 +79,7 @@
         font-family: "微软雅黑";
         border-radius: 0 4px 4px 0;
         border: 1px solid red;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
     .myInput{
         float: left;
@@ -81,19 +91,39 @@
         left: 30%;
     }
 </style>
+
+
 <body>
 
+	<!-- <header class="codrops-header">
+		<h1>对话框的效果</h1>
+		<div class="button-wrap"><button data-dialog="somedialog" class="trigger">打开对话框</button></div>
+	</header> -->
 
 <div class="send">
     <div class="s_fiter">
         <div class="s_con">
-            <input type="text" class="s_txt myInput">
-            <button value="发布评论" class="s_sub myInput">
-                <span class="mySend">发送</span>
-            </button>
+            <input type="text" class="s_txt myInput" id="input">
+            <span id="myInSe" style="width:30%;height:37px;float:left;margin-top:20px;">
+                <button value="发布评论" class="s_sub myInput" data-dialog="somedialog">
+                    <span class="mySend">发送</span>
+                </button>
+            </span>
+
         </div>
     </div>
 </div>
+
+<div id="somedialog" class="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+        <h2><strong id="toast_warn">警告</strong><p id="toast_text">testtest</p></h2><div><button class="action" data-dialog-close>关闭</button></div>
+    </div>
+</div>
+
+
+
+
 
 <script type="text/javascript" src="{{ asset('barrage/static/js/jquery-1.9.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('barrage/static/js/bootstrap.min.js') }}"></script>
@@ -102,21 +132,95 @@
 
 <!--颜色-->
 <script type="text/javascript" src="{{ asset('barrage/static/pick-a-color/js/pick-a-color-1.2.3.min.js') }}"></script>
-<script>
-    var  item={
-        'info':'我是魏亚林',
-        'close':false,
-        'speed':6,
-        'color': 'red',
-        'old_ie_color':'#000000'
-    };
-    $('body').barrager(item);
-    $('body').barrager(item);
-    $('body').barrager(item);
-    $('body').barrager(item);
-    $('body').barrager(item);
-    $('body').barrager(item);
-    $('body').barrager(item);
+
+<!-- 弹出框 -->
+<script type="text/javascript" src="{{ asset('annie/js/classie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('annie/js/dialogFx.js') }}"></script>
+
+<script >
+    getData();
+    function getData() {
+        var opinion_id = 0;
+        setInterval(function() {
+            $.ajax({
+                type:'GET',
+                url:'/debate/getOption',
+                data:{
+                    opinion_id : opinion_id
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if(response.code == 0) {
+                        response.result.forEach(function(item, index) {
+                            
+                            var  val = {
+                                'info':item.name + ': ' + item.content,
+                                'close':false,
+                                'speed':6,
+                                'color': '#ffff',
+                                'old_ie_color':'#000000'
+                            };
+                            $('body').barrager(val);
+
+                            if(index == (response.result.length -1)) {
+                                opinion_id = item.id
+                            }
+                            val = null;
+                        })
+                    }
+                }
+            })
+        }, 50000);
+    }
+
+    function Tosat(title ='警告', text='暂无') {
+       
+        var dlgtrigger = document.querySelector( '[data-dialog]' );
+        var somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) );
+        
+        $('#toast_warn').text(title);
+        $('#toast_text').text(text);
+        dlg = new DialogFx( somedialog );
+        dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+    }
+
+    (function() {
+        $('#myInSe').click(function() {
+            console.log(';aaa');
+            var msg = $('#input').val().trim();
+            if(msg == '') {
+                
+                Tosat('警告','请填写内容');
+                return false;
+            }
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type:'POST',
+                url:'/debate/option',
+                data: {
+                    content: msg
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if(response.code == 0) {
+                        // $('#input').val('');
+                        Tosat('success','留言成功');
+                    }
+                    else {
+                        Tosat('error','留言失败');
+                    }
+                }
+
+            })
+            
+        })
+    })();
 </script>
+
+
 </body>
 </html>
