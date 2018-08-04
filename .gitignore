@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/barrage
+/public/tate
 /storage/*.key
 /vendor
 /.idea
