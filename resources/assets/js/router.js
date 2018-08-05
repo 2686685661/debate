@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 let all_router = {
     routes: [
         {
-            path: '/signin',
+            path: '/',
             component: resolve => void(require(['./components/signIn'], resolve))
         },
         {

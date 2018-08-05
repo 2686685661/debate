@@ -11,15 +11,11 @@
 |
 */
 
-// Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
-
-
-
-//Route::group(['middleware' => ['login_check']], function () {
-    Route::get('/', function () {
-        return view('index');
-    });
+Route::get('/', function () {
+    return view('index');
+});
+Route::group(['middleware' => ['login_check']], function () {
     Route::get('/welcome', function () {
         return view('welcome');
     });
@@ -34,5 +30,5 @@ Route::post('/login', 'LoginController@login');
         Route::get('/getUser','DebateController@getUser');
         Route::post('/updateUser','DebateController@updateUser');
     });
-//});
+});
 

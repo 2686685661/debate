@@ -22,7 +22,7 @@ class LoginCheck
             if ($request->ajax()) {
                 return response("Unauthorized.(未登录)", 401)->header("X-CSRF-TOKEN", csrf_token());
             } else {
-                return redirect('/login');
+                return redirect('/');
             }
         }
     }
