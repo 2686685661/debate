@@ -137,10 +137,10 @@
 
 <div class="clearboth">
     <div style="float: left;width: 50%;text-align: center;">
-        <span id="zhengfang" class="option" style="color: rgb(245,108,108)">正:100</span>
+        <span id="zhengfang" class="option" style="color: rgb(245,108,108)">正:</span>
     </div>
     <div style="float: right;width: 50%;text-align: center;">
-        <span id="fanfang" class="option" style="color: rgb(22,142,245);">反:100</span>
+        <span id="fanfang" class="option" style="color: rgb(22,142,245);">反:</span>
     </div>
 </div>
 
@@ -154,7 +154,7 @@
         <div class="s_con">
             <input type="text" style="margin-left: 2px" class="s_txt myInput" id="input">
             <button value="发布评论" class="s_sub myInput">
-                <span class="mySend" data-dialog="somedialog">发送</span>
+                <span class="mySend" data-dialog="somedialog">发弹幕</span>
             </button>
         </div>
     </div>
@@ -250,6 +250,41 @@
         dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
     }
 
+    function add(stand) {
+        if(stand == User.stand) {
+            return;
+            // Tosat('warn','已加入该阵营');
+        }
+        else {
+            $.ajax({
+            type: 'POST',
+            url: '/debate/change',
+            data: {
+                stand: stand
+            },
+            dataType: 'json',
+            success: function(response) {
+                if(response.code == 0) {
+                    if(stand == 1) {
+                        $('.negative').text('加入反方阵营');
+                        $('.square').text('正义即荣耀');
+                    }
+                    else if(stand == 2) {
+                        $('.square').text('加入正方阵营');
+                        $('.negative').text('黎明前的黑暗');
+                    }
+                    
+                    
+                }
+                else{
+                    console.log(response.msg);
+                }
+            }
+
+            });
+        }
+    }
+
     (function() {
         $('.mySend').click(function() {
             
@@ -258,11 +293,11 @@
                 Tosat('警告','请填写内容');
                 return false;
             }
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+            // $.ajaxSetup({
+            //     headers: {
+            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            //     }
+            // });
             $.ajax({
                 type:'POST',
                 url:'/debate/option',
@@ -283,7 +318,11 @@
             })
             
         });
-        
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+        });
         $.ajax({
             type:'GET',
             url:'/debate/getUser',
@@ -296,36 +335,13 @@
         })
 
         $('.square').click(function() {
-            this.add(1);
+            add(1);
         });
         $('.negative').click(function() {
-            this.add(2);
+            add(2);
         });
 
-        function add(stand) {
-            if(stand == User.stand) {
-                Tosat('warn','已阵营');
-            }
-            else {
-                $.ajax({
-                type: 'POST',
-                url: '/debate/change',
-                data: {
-                    stand: stand
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if(response.code == 0) {
-                        Tosat('success','加入成功');
-                    }
-                    else{
-                        Tosat('error','加入失败');
-                    }
-                }
 
-                });
-            }
-        }
     })();
 </script>
 
