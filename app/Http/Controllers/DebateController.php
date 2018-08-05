@@ -67,7 +67,7 @@ class DebateController extends Controller
         $user = DB::table('user')
                 ->where('id',get_user_id())
                 ->first();
-        responseToJson(0,'success',$user);
+        return responseToJson(0,'success',$user);
     }
     public function updateUser(Request $request){
         $name  = $request->input('name');
