@@ -208,7 +208,7 @@
         opinion_id = 0;
         
         getOption();
-        max_id = getCount();
+        // max_id = getCount();
         // console.log(max_id);
         // getNum();
         setInterval(getOption, 6000);
@@ -266,9 +266,9 @@
                             opinion_id = item.id
                         }
 
-                        if(opinion_id == getCount()) {
-                            opinion_id = 0;
-                        }
+                        // if(opinion_id == getCount()) {
+                        //     opinion_id = 0;
+                        // }
                         // if((opinion_id == item.id) && (opinion_id != 0)) {
                         //     opinion_id = 0;
                         // }
@@ -278,11 +278,11 @@
                     // console.log(opinion_id);
                     // console.log(getCount());
                     // console.log('###');
-                    if(opinion_id == max_id) {
-                        max_id = getCount();
-                        console.log(max_id);
-                        opinion_id = Math.round(max_id / 2);
-                    }
+                    // if(opinion_id == max_id) {
+                    //     max_id = getCount();
+                    //     console.log(max_id);
+                    //     opinion_id = Math.round(max_id / 2);
+                    // }
                 }
             }
             
@@ -341,18 +341,27 @@
     }
 
     function getCount() {
-        var a = $.ajax({
+        $.ajax({
             type:'GET',
             url:'/debate/getCount',
             dataType: 'json',
             async:false,
             success:function(response) {
+                
                 if(response.code == 0) {
+                   
                     id_max = response.result;
+                }else {
+                    id_max = 0;
                 }
+            },
+            error:function() {
+                console.log('aaaa');
             }
-        })
-        a = null;
+
+        });
+        // a = null;
+        
         return id_max;
     }
 
