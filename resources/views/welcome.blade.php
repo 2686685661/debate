@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="vip-img" content="{{asset('img/vip3.gif')}}">
     <title>{{ env('TITLE') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('barrage/static/css/bootstrap.min.css') }}" media="screen" />
@@ -201,6 +202,7 @@
 <script type="text/javascript" src="{{ asset('annie/js/dialogFx.js') }}"></script>
 
 <script>
+    var vipImg = $('meta[name="vip-img"]').attr('content');
     getData();
     function getData() {
         opinion_id = 0;
@@ -247,12 +249,13 @@
                             'color': '#ffff',
                             'old_ie_color':'#000000'
                         };
+                        console.log();
                         var  vip = {
+                            'img': vipImg,
                             'info':item.name + ': ' + item.content,
                             'close':false,
-                            'speed':4,
-                            'color': '#E1E100',
-                            'old_ie_color':'#00FFFF'
+                            'speed':6,
+                            'color': 'red',
                         };
                         if(item.sn == '001' || item.sn == '002'){
                             $('body').barrager(vip);
