@@ -208,7 +208,6 @@
         opinion_id = 0;
         
         getOption();
-        max_id = getCount();
 
         setInterval(getOption, 6000);
 
@@ -315,18 +314,26 @@
     }
 
     function getCount() {
-        var a = $.ajax({
+        $.ajax({
             type:'GET',
             url:'/debate/getCount',
             dataType: 'json',
             async:false,
             success:function(response) {
+                
                 if(response.code == 0) {
+                   
                     id_max = response.result;
+                }else {
+                    id_max = 0;
                 }
+            },
+            error:function() {
+                console.log('aaaa');
             }
-        })
-        a = null;
+
+        });
+        
         return id_max;
     }
 

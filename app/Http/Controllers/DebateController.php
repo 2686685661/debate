@@ -57,7 +57,7 @@ class DebateController extends Controller
             $opinions = DB::table('opinion')
                 ->leftJoin('user','opinion.user_id','user.id')
                 ->where('opinion.id','>',$opinion_id)
-                ->select('opinion.id','content','name','stand')
+                ->select('opinion.id','sn','content','name','stand')
                 ->get();
         }
         return responseToJson(0,'success',$opinions);
