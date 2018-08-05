@@ -207,6 +207,7 @@
         
         getOption();
         max_id = getCount();
+        // console.log(max_id);
         // getNum();
         setInterval(getOption, 6000);
         // setInterval(getNum, 50000);
@@ -250,13 +251,13 @@
                         $('body').barrager(val);
 
                         
-                        if(index == 1) {
+                        if(index == 2) {
                             opinion_id = item.id
                         }
 
-                        // if(opinion_id == getCount()) {
-                        //     opinion_id = 0;
-                        // }
+                        if(opinion_id == getCount()) {
+                            opinion_id = 0;
+                        }
                         // if((opinion_id == item.id) && (opinion_id != 0)) {
                         //     opinion_id = 0;
                         // }
@@ -267,6 +268,7 @@
                     // console.log('###');
                     if(opinion_id == max_id) {
                         max_id = getCount();
+                        console.log(max_id);
                         opinion_id = Math.round(max_id / 2);
                     }
                 }
@@ -282,7 +284,13 @@
         $('#toast_warn').text(title);
         $('#toast_text').text(text);
         dlg = new DialogFx( somedialog );
-        dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+        var cb = dlg.toggle.bind(dlg);
+        cb();
+        // return dlg;
+        // var arr = [];
+        // arr.push()
+        // return dlg.toggle.bind(dlg);
+        // dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
     }
 
     function add(stand) {
@@ -361,11 +369,21 @@
             })
         });
 
-        $('.mySend').click(function() {
+        $('.mySend').click(function(event) {
+            // console.log(event);
+            // event = window.event || event;
+            // if(event.stopPropagation) {
+            //     event.stopPropagation();
+            // }
+            // else {
+            //     event.cancelBubble = true;
+            // }
 
             var msg = $('#input').val().trim();
             if(msg == '') {
-                Tosat('警告','请填写内容');
+                 Tosat('警告','请填写内容');
+                // dlg.toggle.bind(dlg);
+                // console.log(dlg);
                 return false;
             }
 
