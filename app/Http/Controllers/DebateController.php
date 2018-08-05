@@ -50,7 +50,7 @@ class DebateController extends Controller
             $opinions = DB::table('opinion')
                         ->leftJoin('user','opinion.user_id','user.id')
                         ->where('opinion.create_time','>',$time)
-                        ->select('opinion.id','content','name','stand')
+                        ->select('opinion.id','sn','content','name','stand')
                         ->get();
 
         } else {

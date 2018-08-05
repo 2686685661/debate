@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="vip-img" content="{{asset('img/vip3.gif')}}">
     <title>{{ env('TITLE') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('barrage/static/css/bootstrap.min.css') }}" media="screen" />
@@ -201,6 +202,7 @@
 <script type="text/javascript" src="{{ asset('annie/js/dialogFx.js') }}"></script>
 
 <script>
+    var vipImg = $('meta[name="vip-img"]').attr('content');
     getData();
     function getData() {
         opinion_id = 0;
@@ -252,6 +254,19 @@
 
                         
                         if(index == 2) {
+                        var  vip = {
+                            'img': vipImg,
+                            'info':item.name + ': ' + item.content,
+                            'close':false,
+                            'speed':6,
+                            'color': 'red',
+                        };
+                        if(item.sn == '001' || item.sn == '002'){
+                            $('body').barrager(vip);
+                        } else {
+                            $('body').barrager(val);
+                        }
+                        if(index == 1) {
                             opinion_id = item.id
                         }
 
@@ -432,7 +447,7 @@
                         User = response.result;
                         
                         if(User.stand == 1) {
-                            if($('.square').text() != '正义即荣耀')
+                            if($('.square').text() != '正义即荣耀');
                                 $('.square').text('正义即荣耀');
                         }
                         else if(User.stand == 2) {
@@ -454,7 +469,7 @@
         }
         $('.negative').click(function() {
             getUser();
-            console.log(User);
+            // console.log(User);
             add(2);
         });
 
