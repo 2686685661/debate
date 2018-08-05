@@ -188,7 +188,7 @@
     function getData() {
         getOption();
         // getNum();
-        setInterval(getOption, 50000);
+        setInterval(getOption, 2000);
         // setInterval(getNum, 50000);
 
 
@@ -351,7 +351,7 @@
     var left = 50;
     var right = 50;
     getNum();
-    setInterval(getNum, 5000);
+    setInterval(getNum, 2000);
     function getNum() {
         $.ajax({
             type:'GET',
