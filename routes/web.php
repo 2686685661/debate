@@ -29,6 +29,8 @@ Route::group(['middleware' => ['login_check']], function () {
         Route::get('/getOption','DebateController@getOption');
         Route::get('/getUser','DebateController@getUser');
         Route::post('/updateUser','DebateController@updateUser');
+
+        Route::get('/getCount','DebateController@getCount');
     });
 });
 

@@ -82,4 +82,16 @@ class DebateController extends Controller
             return responseToJson(1,'failed');
         }
     }
+
+    public function getCount() {
+        $price = DB::table('opinion')->max('id');
+        if($price > 0) {
+            return responseToJson(0,'success',$price);
+        }
+        else {
+            return responseToJson(1,'failed');
+        }
+        
+
+    }
 }

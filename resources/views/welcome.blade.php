@@ -187,9 +187,11 @@
     getData();
     function getData() {
         opinion_id = 0;
+        
         getOption();
+        max_id = getCount();
         // getNum();
-        setInterval(getOption, 2000);
+        setInterval(getOption, 6000);
         // setInterval(getNum, 50000);
 
 
@@ -231,11 +233,25 @@
                         $('body').barrager(val);
 
                         
-                        if(index == (response.result.length -1)) {
+                        if(index == 1) {
                             opinion_id = item.id
                         }
+
+                        // if(opinion_id == getCount()) {
+                        //     opinion_id = 0;
+                        // }
+                        // if((opinion_id == item.id) && (opinion_id != 0)) {
+                        //     opinion_id = 0;
+                        // }
                         val = null;
                     })
+                    // console.log(opinion_id);
+                    // console.log(getCount());
+                    // console.log('###');
+                    if(opinion_id == max_id) {
+                        max_id = getCount();
+                        opinion_id = Math.round(max_id / 2);
+                    }
                 }
             }
         })
@@ -286,6 +302,22 @@
         }
     }
 
+    function getCount() {
+        var a = $.ajax({
+            type:'GET',
+            url:'/debate/getCount',
+            dataType: 'json',
+            async:false,
+            success:function(response) {
+                if(response.code == 0) {
+                    id_max = response.result;
+                }
+            }
+        })
+        a = null;
+        return id_max;
+    }
+
     (function() {
         $('.mySend').click(function() {
             
@@ -320,6 +352,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
         });
+
         getUser();
 
         $('.square').click(function() {
