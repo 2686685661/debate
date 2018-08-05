@@ -203,15 +203,9 @@
 
 <script>
     var vipImg = $('meta[name="vip-img"]').attr('content');
-    getData();
-    function getData() {
-        opinion_id = 0;
-        
-        getOption();
-
-        setInterval(getOption, 6000);
-
-    }
+    var opinion_id = 0;
+    getOption();
+    setInterval(getOption, 5000);
 
     function getOption() {
        
@@ -224,7 +218,7 @@
             dataType: 'json',
             success: function(response) {
                 if(response.code == 0) {
-                    response.result.forEach(function(item, index) {
+                    response.result.forEach(function(item) {
 
                         var  val = {
                             'info':item.name + ': ' + item.content,
@@ -245,22 +239,11 @@
                         } else {
                             $('body').barrager(val);
                         }
-                        if(index == 1) {
-                            opinion_id = item.id
-                        }
-
-                        if(opinion_id == getCount()) {
-                            opinion_id = 0;
-                        }
-
+                        opinion_id = item.id
                         val = null;
                         vip = null;
                     })
-                    if(opinion_id == max_id) {
-                        max_id = getCount();
-                        console.log(max_id);
-                        opinion_id = Math.round(max_id / 2);
-                    }
+
                 }
             }
             
@@ -313,29 +296,29 @@
         }
     }
 
-    function getCount() {
-        $.ajax({
-            type:'GET',
-            url:'/debate/getCount',
-            dataType: 'json',
-            async:false,
-            success:function(response) {
-                
-                if(response.code == 0) {
-                   
-                    id_max = response.result;
-                }else {
-                    id_max = 0;
-                }
-            },
-            error:function() {
-                console.log('aaaa');
-            }
-
-        });
-        
-        return id_max;
-    }
+    // function getCount() {
+    //     $.ajax({
+    //         type:'GET',
+    //         url:'/debate/getCount',
+    //         dataType: 'json',
+    //         async:false,
+    //         success:function(response) {
+    //
+    //             if(response.code == 0) {
+    //
+    //                 id_max = response.result;
+    //             }else {
+    //                 id_max = 0;
+    //             }
+    //         },
+    //         error:function() {
+    //             console.log('aaaa');
+    //         }
+    //
+    //     });
+    //
+    //     return id_max;
+    // }
 
     (function() {
         $('#subName').click(function() {
@@ -381,7 +364,6 @@
                 success: function(response) {
                     if(response.code == 0) {
                         $('#input').val('');
-                        // Tosat('success','留言成功');
                     }
                     else {
                         Tosat('error','留言失败');
@@ -395,13 +377,6 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-        });
-
-        getUser();
-
-        $('.square').click(function() {
-            getUser();
-            add(1);
         });
 
         function getUser() {
@@ -436,12 +411,15 @@
                 }
             });
         }
+        getUser();
+        $('.square').click(function() {
+            getUser();
+            add(1);
+        });
         $('.negative').click(function() {
             getUser();
             add(2);
         });
-
-
     })();
 </script>
 
