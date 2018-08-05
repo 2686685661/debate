@@ -252,7 +252,7 @@
                         };
                         $('body').barrager(val);
 
-                        
+
                         if(index == 2) {
                         var  vip = {
                             'img': vipImg,
