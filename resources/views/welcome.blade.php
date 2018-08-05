@@ -209,27 +209,11 @@
         
         getOption();
         max_id = getCount();
-        // console.log(max_id);
-        // getNum();
-        setInterval(getOption, 6000);
-        // setInterval(getNum, 50000);
 
+        setInterval(getOption, 6000);
 
     }
 
-    // function setNum() {
-    //     $.ajax({
-    //         type:'GET',
-    //         url:'/debate/getNum',
-    //         dataType: 'json',
-    //         success: function(response) {
-    //             if(response.code == 0) {
-    //                 var num = response.result;
-
-    //             }
-    //         }
-    //     })
-    // }
     function getOption() {
        
         $.ajax({
@@ -269,15 +253,10 @@
                         if(opinion_id == getCount()) {
                             opinion_id = 0;
                         }
-                        // if((opinion_id == item.id) && (opinion_id != 0)) {
-                        //     opinion_id = 0;
-                        // }
+
                         val = null;
                         vip = null;
                     })
-                    // console.log(opinion_id);
-                    // console.log(getCount());
-                    // console.log('###');
                     if(opinion_id == max_id) {
                         max_id = getCount();
                         console.log(max_id);
@@ -290,26 +269,21 @@
     }
 
     function Tosat(title ='警告', text='暂无') {
-       
+
         var dlgtrigger = document.querySelector( '[data-dialog]' );
         var somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) );
-        
+
         $('#toast_warn').text(title);
         $('#toast_text').text(text);
         dlg = new DialogFx( somedialog );
         var cb = dlg.toggle.bind(dlg);
         cb();
-        // return dlg;
-        // var arr = [];
-        // arr.push()
-        // return dlg.toggle.bind(dlg);
-        // dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+
     }
 
     function add(stand) {
         if(stand == User.stand) {
             return;
-            // Tosat('warn','已加入该阵营');
         }
         else {
             $.ajax({
@@ -329,7 +303,7 @@
                         $('.square').text('加入正方阵营');
                         $('.negative').text('黎明前的黑暗');
                     }
-                    
+
                 }
                 else{
                     console.log(response.msg);
@@ -383,20 +357,10 @@
         });
 
         $('.mySend').click(function(event) {
-            // console.log(event);
-            // event = window.event || event;
-            // if(event.stopPropagation) {
-            //     event.stopPropagation();
-            // }
-            // else {
-            //     event.cancelBubble = true;
-            // }
 
             var msg = $('#input').val().trim();
             if(msg == '') {
                  Tosat('警告','请填写内容');
-                // dlg.toggle.bind(dlg);
-                // console.log(dlg);
                 return false;
             }
 
@@ -410,7 +374,7 @@
                 success: function(response) {
                     if(response.code == 0) {
                         $('#input').val('');
-                        Tosat('success','留言成功');
+                        // Tosat('success','留言成功');
                     }
                     else {
                         Tosat('error','留言失败');
@@ -467,7 +431,6 @@
         }
         $('.negative').click(function() {
             getUser();
-            // console.log(User);
             add(2);
         });
 
