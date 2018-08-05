@@ -31,6 +31,8 @@ Route::post('/login', 'LoginController@login');
         Route::get('/getNum', 'DebateController@getNum');
         Route::post('/option', 'DebateController@option');
         Route::get('/getOption','DebateController@getOption');
+        Route::get('/getUser','DebateController@getUser');
+        Route::post('/updateUser','DebateController@updateUser');
     });
 //});
 

@@ -17,8 +17,8 @@ class User extends Model
     }
 
     public static function reset($user){
-        DB::table('user')
-            ->where('id', $user['id'])
-            ->update($user);
+        return DB::table('user')
+                ->where('id', $user['id'])
+                ->update($user);
     }
 }
