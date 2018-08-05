@@ -47,7 +47,7 @@
         transform: rotate(180deg);
         top: 0;
     }
-    .clearboth{
+    .clearboth:after{
         content: "";
         clear: both;
         display: block;
@@ -137,10 +137,10 @@
 
 <div class="clearboth">
     <div style="float: left;width: 50%;text-align: center;">
-        <span class="option" style="color: rgb(245,108,108)">正:100</span>
+        <span id="zhengfang" class="option" style="color: rgb(245,108,108)">正:100</span>
     </div>
     <div style="float: right;width: 50%;text-align: center;">
-        <span class="option" style="color: rgb(22,142,245);">反:100</span>
+        <span id="fanfang" class="option" style="color: rgb(22,142,245);">反:100</span>
     </div>
 </div>
 
@@ -187,8 +187,26 @@
     getData();
     function getData() {
         getOption();
+        // getNum();
         setInterval(getOption, 50000);
+        // setInterval(getNum, 50000);
+
+
     }
+
+    // function setNum() {
+    //     $.ajax({
+    //         type:'GET',
+    //         url:'/debate/getNum',
+    //         dataType: 'json',
+    //         success: function(response) {
+    //             if(response.code == 0) {
+    //                 var num = response.result;
+
+    //             }
+    //         }
+    //     })
+    // }
     function getOption() {
         var opinion_id = 0;
         $.ajax({
@@ -268,7 +286,7 @@
         
         $.ajax({
             type:'GET',
-            url:'',
+            url:'/debate/getUser',
             dataType: 'json',
             success:function(response) {
                 if(response.code == 0) {
@@ -280,7 +298,6 @@
         $('.square').click(function() {
             this.add(1);
         });
-
         $('.negative').click(function() {
             this.add(2);
         });
@@ -328,10 +345,16 @@
                 if(response.code == 0) {
                     leftNum = response.result.square;
                     rightNum = response.result.negative;
+                    updateNUmDom();
                     compute();
                 }
             }
         })
+    }
+    function updateNUmDom() {
+        $('#zhengfang').text('正方：'+ leftNum+'人');
+        $('#fanfang').text('反方：'+ rightNum+'人');
+
     }
     function compute() {
         if(leftNum == 0 && rightNum == 0){
