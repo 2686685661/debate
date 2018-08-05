@@ -186,9 +186,10 @@
 <script >
     getData();
     function getData() {
+        opinion_id = 0;
         getOption();
         // getNum();
-        setInterval(getOption, 50000);
+        setInterval(getOption, 10000);
         // setInterval(getNum, 50000);
 
 
@@ -208,7 +209,7 @@
     //     })
     // }
     function getOption() {
-        var opinion_id = 0;
+       
         $.ajax({
             type:'GET',
             url:'/debate/getOption',
@@ -229,6 +230,7 @@
                         };
                         $('body').barrager(val);
 
+                        
                         if(index == (response.result.length -1)) {
                             opinion_id = item.id
                         }
@@ -273,7 +275,6 @@
                         $('.square').text('加入正方阵营');
                         $('.negative').text('黎明前的黑暗');
                     }
-                    
                     
                 }
                 else{
@@ -330,6 +331,13 @@
             success:function(response) {
                 if(response.code == 0) {
                     User = response.result;
+                    if(User.stand == 1) {
+                        $('.square').text('正义即荣耀');
+                    }
+                    else if(User.stand == 2) {
+                        $('.negative').text('黎明前的黑暗');
+                    } 
+
                 }
             }
         })
@@ -351,7 +359,7 @@
     var left = 50;
     var right = 50;
     getNum();
-    setInterval(getNum, 5000);
+    setInterval(getNum, 2000);
     function getNum() {
         $.ajax({
             type:'GET',
