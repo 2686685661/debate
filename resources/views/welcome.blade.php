@@ -247,9 +247,18 @@
                             'color': '#ffff',
                             'old_ie_color':'#000000'
                         };
-                        $('body').barrager(val);
-
-                        
+                        var  vip = {
+                            'info':item.name + ': ' + item.content,
+                            'close':false,
+                            'speed':4,
+                            'color': '#E1E100',
+                            'old_ie_color':'#00FFFF'
+                        };
+                        if(item.sn == '001' || item.sn == '002'){
+                            $('body').barrager(vip);
+                        } else {
+                            $('body').barrager(val);
+                        }
                         if(index == 1) {
                             opinion_id = item.id
                         }
