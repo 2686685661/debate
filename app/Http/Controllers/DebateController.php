@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Temp;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Log;
@@ -60,5 +61,25 @@ class DebateController extends Controller
                 ->get();
         }
         return responseToJson(0,'success',$opinions);
+    }
+
+    public function getUser(){
+        $user = DB::table('user')
+                ->where('id',get_user_id())
+                ->firsr();
+        responseToJson(0,'success',$user);
+    }
+    public function updateUser(Request $request){
+        $name  = $request->input('name');
+        $res = User::reset([
+            'id' => get_user_id(),
+            'name' => $name
+        ]);
+        if($res){
+            return responseToJson(0,'success');
+        }
+        else{
+            return responseToJson(1,'failed');
+        }
     }
 }
