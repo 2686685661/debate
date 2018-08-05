@@ -270,8 +270,6 @@
     }
 
     function add(stand) {
-        // console.log(stand);
-        // console.log(User);
         if(stand == User.stand) {
             return;
             // Tosat('warn','已加入该阵营');
@@ -365,11 +363,9 @@
                 }
         });
         getUser();
-        // console.log(User);
 
         $('.square').click(function() {
             getUser();
-            console.log(User);
             add(1);
         });
 
