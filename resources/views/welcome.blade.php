@@ -167,9 +167,26 @@
     </div>
 </div>
 
-
-
-
+<div class="modal fade" id="modalone">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">模态弹出窗标题</h4>
+            </div>
+            <div class="modal-body">
+                <p>模态框主体</p>
+            </div>
+            <div class="modal-footer">
+                <p style="display: inline-block;">模态框底部</p>
+                <button class="btn btn-info">done</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 <script type="text/javascript" src="{{ asset('barrage/static/js/jquery-1.9.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('barrage/static/js/bootstrap.min.js') }}"></script>
@@ -183,7 +200,7 @@
 <script type="text/javascript" src="{{ asset('annie/js/classie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('annie/js/dialogFx.js') }}"></script>
 
-<script >
+<script>
     getData();
     function getData() {
         getOption();
@@ -287,7 +304,7 @@
 
     (function() {
         $('.mySend').click(function() {
-            
+
             var msg = $('#input').val().trim();
             if(msg == '') {
                 Tosat('警告','请填写内容');
@@ -380,6 +397,17 @@
         left = 100*(leftNum/(leftNum+rightNum));
         right = 100*(rightNum/(leftNum+rightNum));
     }
+    function check() {
+        if(User.name.length == 0){
+            $("#modalone").modal({
+                backdrop: false, // 相当于data-backdrop
+                keyboard: false, // 相当于data-keyboard
+                show: true, // 相当于data-show
+                remote: "" // 相当于a标签作为触发器的href
+            });
+        }
+    }
+    check();
 </script>
 <script type="text/javascript" src="{{ asset('rate/script.js') }}"></script>
 </body>
