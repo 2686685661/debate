@@ -273,6 +273,7 @@
                         //     opinion_id = 0;
                         // }
                         val = null;
+                        vip = null;
                     })
                     // console.log(opinion_id);
                     // console.log(getCount());
