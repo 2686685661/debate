@@ -189,7 +189,7 @@
         opinion_id = 0;
         getOption();
         // getNum();
-        setInterval(getOption, 10000);
+        setInterval(getOption, 2000);
         // setInterval(getNum, 50000);
 
 

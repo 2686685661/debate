@@ -37,7 +37,7 @@ class Temp extends Model
                 }
             }
 
-            DB::table('user')->where('id', 1)->update(['stand' => $stand]);
+            DB::table('user')->where('id', get_user_id())->update(['stand' => $stand]);
 
             DB::commit();
             return true;
