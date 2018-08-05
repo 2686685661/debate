@@ -152,9 +152,9 @@
 <div class="send">
     <div class="s_fiter">
         <div class="s_con">
-            <input type="text" style="margin-left: 2px" class="s_txt myInput">
+            <input type="text" style="margin-left: 2px" class="s_txt myInput" id="input">
             <button value="发布评论" class="s_sub myInput">
-                <span class="mySend">发送</span>
+                <span class="mySend" data-dialog="somedialog">发送</span>
             </button>
         </div>
     </div>
@@ -233,11 +233,10 @@
     }
 
     (function() {
-        $('#myInSe').click(function() {
-            console.log(';aaa');
+        $('.mySend').click(function() {
+            
             var msg = $('#input').val().trim();
             if(msg == '') {
-                
                 Tosat('警告','请填写内容');
                 return false;
             }
@@ -255,7 +254,7 @@
                 dataType: 'json',
                 success: function(response) {
                     if(response.code == 0) {
-                        // $('#input').val('');
+                        $('#input').val('');
                         Tosat('success','留言成功');
                     }
                     else {
@@ -265,7 +264,51 @@
 
             })
             
+        });
+        
+        $.ajax({
+            type:'GET',
+            url:'',
+            dataType: 'json',
+            success:function(response) {
+                if(response.code == 0) {
+                    User = response.result;
+                }
+            }
         })
+
+        $('.square').click(function() {
+            this.add(1);
+        });
+
+        $('.negative').click(function() {
+            this.add(2);
+        });
+
+        function add(stand) {
+            if(stand == User.stand) {
+                Tosat('warn','已阵营');
+            }
+            else {
+                $.ajax({
+                type: 'POST',
+                url: '/debate/change',
+                data: {
+                    stand: stand
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if(response.code == 0) {
+                        Tosat('success','加入成功');
+                    }
+                    else{
+                        Tosat('error','加入失败');
+                    }
+                }
+
+                });
+            }
+        }
     })();
 </script>
 

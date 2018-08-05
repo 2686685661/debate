@@ -49,7 +49,8 @@
                     let date = response.data;
                     if (date.status==0) {
                         Toast('登录成功！');
-                        that.$router.push({ path: '/debate' });
+                        // that.$router.push({ path: '/debate' });
+                        window.location.href = '/welcome';
                     }else if(date.status == 1) {
                         Toast(date.msg);
                     }
