@@ -107,21 +107,46 @@
         top: -55%;
         left: 0%;
     }
+    .option{
+        width: 100%;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .square{
+        background-color: rgba(245,108,108,0.5);
+    }
+    .negative{
+        background-color: rgba(22,142,245,0.5);
+    }
+    .add{
+        width: 200px;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: block;
+        border-radius: 10%;
+    }
 </style>
 
 
 <body>
 <div style="position: relative;width: 100%;height: 100px">
-    <div id="myLeft">
+    <div id="myLeft"></div>
+    <div id="myRight"></div>
+</div>
 
-	<!-- <header class="codrops-header">
-		<h1>对话框的效果</h1>
-		<div class="button-wrap"><button data-dialog="somedialog" class="trigger">打开对话框</button></div>
-	</header> -->
+<div class="clearboth">
+    <div style="float: left;width: 50%;text-align: center;">
+        <span class="option" style="color: rgb(245,108,108)">正:100</span>
     </div>
-    <div id="myRight">
+    <div style="float: right;width: 50%;text-align: center;">
+        <span class="option" style="color: rgb(22,142,245);">反:100</span>
+    </div>
+</div>
 
-    </div>
+<div>
+    <button class="square add">加入正方阵营</button>
+    <button class="negative add">加入反方阵营</button>
 </div>
 
 <div class="send">
@@ -161,37 +186,39 @@
 <script >
     getData();
     function getData() {
+        getOption();
+        setInterval(getOption, 50000);
+    }
+    function getOption() {
         var opinion_id = 0;
-        setInterval(function() {
-            $.ajax({
-                type:'GET',
-                url:'/debate/getOption',
-                data:{
-                    opinion_id : opinion_id
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if(response.code == 0) {
-                        response.result.forEach(function(item, index) {
-                            
-                            var  val = {
-                                'info':item.name + ': ' + item.content,
-                                'close':false,
-                                'speed':6,
-                                'color': '#ffff',
-                                'old_ie_color':'#000000'
-                            };
-                            $('body').barrager(val);
+        $.ajax({
+            type:'GET',
+            url:'/debate/getOption',
+            data:{
+                opinion_id : opinion_id
+            },
+            dataType: 'json',
+            success: function(response) {
+                if(response.code == 0) {
+                    response.result.forEach(function(item, index) {
 
-                            if(index == (response.result.length -1)) {
-                                opinion_id = item.id
-                            }
-                            val = null;
-                        })
-                    }
+                        var  val = {
+                            'info':item.name + ': ' + item.content,
+                            'close':false,
+                            'speed':6,
+                            'color': '#ffff',
+                            'old_ie_color':'#000000'
+                        };
+                        $('body').barrager(val);
+
+                        if(index == (response.result.length -1)) {
+                            opinion_id = item.id
+                        }
+                        val = null;
+                    })
                 }
-            })
-        }, 50000);
+            }
+        })
     }
 
     function Tosat(title ='警告', text='暂无') {
@@ -244,9 +271,33 @@
 
 
 <script>
-    var leftNum = 150,rightNum = 100;
-    var left = 100*(leftNum/(leftNum+rightNum));
-    var right = 100*(rightNum/(leftNum+rightNum));
+    var leftNum,rightNum;
+    var left = 50;
+    var right = 50;
+    getNum();
+    setInterval(getNum, 5000);
+    function getNum() {
+        $.ajax({
+            type:'GET',
+            url:'/debate/getNum',
+            dataType: 'json',
+            success: function(response) {
+                if(response.code == 0) {
+                    leftNum = response.result.square;
+                    rightNum = response.result.negative;
+                    compute();
+                }
+            }
+        })
+    }
+    function compute() {
+        if(leftNum == 0 && rightNum == 0){
+            left = right = 50;
+            return;
+        }
+        left = 100*(leftNum/(leftNum+rightNum));
+        right = 100*(rightNum/(leftNum+rightNum));
+    }
 </script>
 <script type="text/javascript" src="{{ asset('rate/script.js') }}"></script>
 </body>
