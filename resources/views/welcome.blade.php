@@ -126,6 +126,9 @@
         display: block;
         border-radius: 10%;
     }
+    .modal-dialog{
+        margin-top: 50%;
+    }
 </style>
 
 
@@ -171,21 +174,18 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">模态弹出窗标题</h4>
+                <h4 class="modal-title">请输入真实姓名</h4>
             </div>
             <div class="modal-body">
-                <p>模态框主体</p>
+                <form class="bs-example bs-example-form" role="form">
+                    <input type="text" class="form-control" id="namePut">
+                </form>
             </div>
             <div class="modal-footer">
-                <p style="display: inline-block;">模态框底部</p>
-                <button class="btn btn-info">done</button>
+                <button class="btn btn-info" id="subName">确认</button>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <script type="text/javascript" src="{{ asset('barrage/static/js/jquery-1.9.1.min.js') }}"></script>
@@ -306,6 +306,31 @@
     }
 
     (function() {
+        $('#subName').click(function() {
+
+            var msg = $('#namePut').val().trim();
+            if(msg == '') {
+                return false;
+            }
+
+            $.ajax({
+                type:'POST',
+                url:'/debate/updateUser',
+                data: {
+                    name: msg
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if(response.code == 0) {
+                        $("#modalone").modal('hide');
+                    }
+                    else {
+                        Tosat('error','留言失败');
+                    }
+                }
+            })
+        });
+
         $('.mySend').click(function() {
 
             var msg = $('#input').val().trim();
@@ -367,6 +392,15 @@
                             if($('.negative').text() != '黎明前的黑暗')
                                 $('.negative').text('黎明前的黑暗');
                         }
+
+                        if(User.name.length == 0){
+                            $("#modalone").modal({
+                                backdrop: false, // 相当于data-backdrop
+                                keyboard: false, // 相当于data-keyboard
+                                show: true, // 相当于data-show
+                                remote: "" // 相当于a标签作为触发器的href
+                            });
+                        }
                     }
                 }
             });
@@ -416,17 +450,7 @@
         left = 100*(leftNum/(leftNum+rightNum));
         right = 100*(rightNum/(leftNum+rightNum));
     }
-    function check() {
-        if(User.name.length == 0){
-            $("#modalone").modal({
-                backdrop: false, // 相当于data-backdrop
-                keyboard: false, // 相当于data-keyboard
-                show: true, // 相当于data-show
-                remote: "" // 相当于a标签作为触发器的href
-            });
-        }
-    }
-    check();
+
 </script>
 <script type="text/javascript" src="{{ asset('rate/script.js') }}"></script>
 </body>

@@ -75,6 +75,7 @@ class DebateController extends Controller
             'id' => get_user_id(),
             'name' => $name
         ]);
+        Log::info($res);
         if($res){
             return responseToJson(0,'success');
         }
