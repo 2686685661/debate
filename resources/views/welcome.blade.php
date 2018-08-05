@@ -249,7 +249,6 @@
                             'color': '#ffff',
                             'old_ie_color':'#000000'
                         };
-                        console.log();
                         var  vip = {
                             'img': vipImg,
                             'info':item.name + ': ' + item.content,
