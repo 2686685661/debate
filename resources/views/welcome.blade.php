@@ -203,6 +203,7 @@
 <script>
     getData();
     function getData() {
+        opinion_id = 0;
         getOption();
         // getNum();
         setInterval(getOption, 2000);
@@ -225,7 +226,7 @@
     //     })
     // }
     function getOption() {
-        var opinion_id = 0;
+       
         $.ajax({
             type:'GET',
             url:'/debate/getOption',
@@ -246,6 +247,7 @@
                         };
                         $('body').barrager(val);
 
+                        
                         if(index == (response.result.length -1)) {
                             opinion_id = item.id
                         }
@@ -268,6 +270,8 @@
     }
 
     function add(stand) {
+        // console.log(stand);
+        // console.log(User);
         if(stand == User.stand) {
             return;
             // Tosat('warn','已加入该阵营');
@@ -291,7 +295,6 @@
                         $('.negative').text('黎明前的黑暗');
                     }
                     
-                    
                 }
                 else{
                     console.log(response.msg);
@@ -310,11 +313,7 @@
                 Tosat('警告','请填写内容');
                 return false;
             }
-            // $.ajaxSetup({
-            //     headers: {
-            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //     }
-            // });
+
             $.ajax({
                 type:'POST',
                 url:'/debate/option',
@@ -340,21 +339,41 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
         });
-        $.ajax({
-            type:'GET',
-            url:'/debate/getUser',
-            dataType: 'json',
-            success:function(response) {
-                if(response.code == 0) {
-                    User = response.result;
-                }
-            }
-        })
+        getUser();
+        // console.log(User);
 
         $('.square').click(function() {
+            getUser();
+            console.log(User);
             add(1);
         });
+
+        function getUser() {
+            $.ajax({
+                type:'GET',
+                url:'/debate/getUser',
+                dataType: 'json',
+                async : false,
+                cache:false, 
+                success:function(response) {
+                    if(response.code == 0) {
+                        User = response.result;
+                        
+                        if(User.stand == 1) {
+                            if($('.square').text() != '正义即荣耀')
+                                $('.square').text('正义即荣耀');
+                        }
+                        else if(User.stand == 2) {
+                            if($('.negative').text() != '黎明前的黑暗')
+                                $('.negative').text('黎明前的黑暗');
+                        }
+                    }
+                }
+            });
+        }
         $('.negative').click(function() {
+            getUser();
+            console.log(User);
             add(2);
         });
 
