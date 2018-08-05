@@ -250,10 +250,10 @@
                             'color': '#ffff',
                             'old_ie_color':'#000000'
                         };
-                        $('body').barrager(val);
+                        // $('body').barrager(val);
 
                         
-                        if(index == 2) {
+                        // if(index == 2) {
                         var  vip = {
                             'img': vipImg,
                             'info':item.name + ': ' + item.content,
@@ -288,6 +288,7 @@
                     }
                 }
             }
+            
         })
     }
 
